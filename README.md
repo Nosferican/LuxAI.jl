@@ -1,1 +1,1 @@
-Lux AI Challenge Julia
+# Lux AI Challenge (A Julia Agent)
