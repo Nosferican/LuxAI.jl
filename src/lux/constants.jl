@@ -1,5 +1,5 @@
 """
-    GameConstants(jsonfile::AbstractString = joinpath(dirname(@__FILE__), "game_constants.json"))
+    GameConstants(jsonfile::AbstractString = joinpath(pkgdir(LuxAI), "src", "lux", "game_constants.json"))
 
 This will contain constants on all game parameters like the max turns, the light upkeep of CityTiles etc.
 If there are any crucial changes to the starter kits, typically only this object will change.
@@ -23,8 +23,7 @@ struct GameConstants
     MIN_ROAD :: Int
     CART_ROAD_DEVELOPMENT_RATE :: Float64
     PILLAGE_RATE :: Float64
-    function GameConstants(jsonfile::AbstractString =
-                               joinpath(dirname(@__FILE__), "game_constants.json"))
+    function GameConstants(jsonfile::AbstractString = joinpath("src", "lux", "game_constants.json"))
         # jsonfile = joinpath(@__DIR__, "src", "lux", "game_constants.json")
         json = JSON3.read(read(jsonfile, String))
         @unpack DAY_LENGTH, NIGHT_LENGTH, MAX_DAYS, LIGHT_UPKEEP, WOOD_GROWTH_RATE, MAX_WOOD_AMOUNT,
